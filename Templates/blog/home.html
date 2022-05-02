@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} Home page {% endblock %}
+
+
+{% block body %}
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Pricing</h1>
+        <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap
+            example. It's built with default Bootstrap components and utilities with little customization.</p>
+    </div>
+
+    <div class="row col-md-12">
+        {% for pricing in pricing %}
+        <div class="col-md-4">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header d-flex justify-content-between">
+                        {% if pricing.is_active %}
+                        <img src="https://i.pinimg.com/originals/01/05/cd/0105cd8de9af870f76b525412fc1acdf.png" height="60">
+                        {% endif %}
+                        <h4 class="my-0 font-weight-normal">{{ pricing.title }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$ {{ pricing.price }} <small class="text-muted">/ mo</small>
+                        </h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            {% for service in pricing.service.all %}
+                            <li> {{  service.title }}</li>
+                            {% endfor %}
+                        </ul>
+                        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

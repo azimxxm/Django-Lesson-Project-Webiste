@@ -1,0 +1,78 @@
+{% extends 'blog/base.html' %}
+{% block title %} Login form {% endblock %}
+{% load static %}
+{% block body %}
+    <section id="contact" class="section mt-2">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact-text section-header text-center">
+                        <div>
+                            <h2 class="section-title">Log in</h2>
+                            <div class="desc-text">
+                                <p>You must be registered in order to use the site to its full potential, <br
+                                        class="d-none d-md-block"> otherwise it will not be able to provide you with full access. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <script>
+                            swal("{{message}}", "You clicked the button!", "{{ message.tags }}");
+                        </script>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <div class="row">
+
+                <div class="col-lg-6 col-md-12">
+                    <form id="contactForm" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="form-group mt-4">
+                                    <input type="text" name="username" class="form-control" id="name">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="form-group mt-4">
+                                    <input type="password" name="password" class="form-control" id="password"
+                                           style="height: 53px">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-10 mt-4">
+                                <div class="submit-button d-flex align-items-center justify-content-center mb-5">
+                                    <button class="btn btn-outline-success" id="submit" type="submit">Submit</button>
+                                    <div id="msgSubmit" class="h3 hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-lg-1">
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="contact-img">
+                        <img src="{% static 'blog/img/01.png' %}" class="img-fluid" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-1">
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

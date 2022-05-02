@@ -1,0 +1,47 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} View Pots Detail{% endblock %}
+
+
+{% block body %}
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row row-cols-10 row-cols-sm-1 row-cols-md-10">
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <script>
+                                swal("{{message}}", "You clicked the button!", "{{ message.tags }}");
+                            </script>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="{{ post.image.url }}">
+                        <div class="card-body">
+                            <h3>{{ post.title }}</h3>
+                            <p class="card-text">{{ post.discrition }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <div class="btn-group">
+                                    <a href="{% url 'view-posts' %}"
+                                       class="btn btn-outline-warning">Back</a>
+                                    <a href="{% url 'view-posts-update' post.pk %}"
+                                       class="btn btn-outline-success">Edit</a>
+                                    <a href="{% url 'view-posts-delete' post.pk %}" class="btn btn-outline-danger">Delete</a>
+                                </div>
+                                <small class="text-muted">Mualif: {{ post.author }}</small>
+                                <small class="text-muted">{{ post.date_created }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
