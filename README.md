@@ -24,4 +24,4 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/azimxxm/Django-Lesson-Project-Webiste)
 ![GitHub last commit](https://img.shields.io/github/last-commit/azimxxm/Django-Lesson-Project-Webiste)
 ![GitHub](https://img.shields.io/github/license/azimxxm/Django-Lesson-Project-Webiste)
-![GitHub top language](https://img.shields.io/github/languages/top/azimxxm/Django-Lesson-Project-Webiste))
+![GitHub top language](https://img.shields.io/github/languages/top/azimxxm/Django-Lesson-Project-Webiste)
